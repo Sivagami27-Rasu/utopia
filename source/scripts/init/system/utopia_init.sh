@@ -665,6 +665,7 @@ if [ "$FACTORY_RESET_REASON" = "true" ]; then
        if [ -e "/usr/bin/onboarding_log" ]; then
           /usr/bin/onboarding_log "[utopia][init] Detected last reboot reason as factory-reset"
        fi
+       touch /nvram/FR_utopia
        syscfg set X_RDKCENTRAL-COM_LastRebootReason "factory-reset"
        syscfg set X_RDKCENTRAL-COM_LastRebootCounter "1"
    fi
