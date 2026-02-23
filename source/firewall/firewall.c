@@ -12239,6 +12239,8 @@ static int prepare_subtables(FILE *raw_fp, FILE *mangle_fp, FILE *nat_fp, FILE *
    {   // Add erouter0 prerouting_fromwan_todmz chain for 'Dual Stack' line only
        fprintf(nat_fp, "-A PREROUTING -i %s -j prerouting_fromwan_todmz\n", isMAPEReady?MAPE_TUNNEL_INTERFACE:current_wan_ifname);
        fprintf(nat_fp, "-A POSTROUTING -j postrouting_ephemeral\n");
+       FIREWALL_DEBUG("firewall debug: not isMAPTReady  \n");
+       v_secure_system("touch /tmp/isMAPTReady_no");
        // This breaks emta DNS routing on XF3. We may need some special rule here.
        fprintf(nat_fp, "-A POSTROUTING -o %s -j postrouting_towan\n", isMAPEReady?MAPE_TUNNEL_INTERFACE:current_wan_ifname);
    }
@@ -12251,6 +12253,8 @@ static int prepare_subtables(FILE *raw_fp, FILE *mangle_fp, FILE *nat_fp, FILE *
    {
       fprintf(nat_fp, "-A PREROUTING -i %s -j prerouting_fromwan_todmz\n", isMAPEReady?MAPE_TUNNEL_INTERFACE:current_wan_ifname);
       fprintf(nat_fp, "-A POSTROUTING -j postrouting_ephemeral\n");
+      FIREWALL_DEBUG("firewall debug: RDKB_GLOBAL_PRODUCT_REQ  \n");
+      v_secure_system("touch  /tmp/RDKB_GLOBAL_PRODUCT_REQ");
    // This breaks emta DNS routing on XF3. We may need some special rule here.
       fprintf(nat_fp, "-A POSTROUTING -o %s -j postrouting_towan\n", isMAPEReady?MAPE_TUNNEL_INTERFACE:current_wan_ifname);
    }
