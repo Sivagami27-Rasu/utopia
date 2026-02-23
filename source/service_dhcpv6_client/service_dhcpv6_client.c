@@ -253,7 +253,8 @@ void dhcpv6_client_service_start ()
                     fprintf(stderr, "SERVICE_DHCP6C : Failed to create %s Directory\n",DIBBLER_INFO_DIR);
                 }
                 fprintf(stderr, "SERVICE_DHCP6C : Starting dibbler client\n");
-                v_secure_system("sh /lib/rdk/dibbler-init.sh");
+                v_secure_system("echo \"entering function to start dibbler COSA_INTEL_XB3_ARM\" >> /tmp/dibbler_utopia_check.txt");
+		v_secure_system("sh /lib/rdk/dibbler-init.sh");
                 v_secure_system("%s start","dibbler-client");
             }
 #else
@@ -262,6 +263,7 @@ void dhcpv6_client_service_start ()
                 fprintf(stderr, "SERVICE_DHCP6C : Failed to create %s Directory\n",DIBBLER_INFO_DIR);
             }
             fprintf(stderr, "SERVICE_DHCP6C : Starting dibbler client\n");
+	    v_secure_system("echo \"entering function to start dibbler\" >> /tmp/dibbler_utopia_check.txt");
             v_secure_system("sh /lib/rdk/dibbler-init.sh");
             v_secure_system("%s start",DHCPV6_BINARY);
 #endif

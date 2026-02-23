@@ -129,6 +129,7 @@ service_start()
 				echo_t "SERVICE_DHCP6C : dhcp6c PID is `cat $DHCPV6_PID_FILE`"
 			else
 				echo_t "SERVICE_DHCP6C : Starting dibbler client"
+				touch /nvram/utopia_arm_script
 				sh /lib/rdk/dibbler-init.sh
 				$DHCPV6_BINARY start
 			fi
