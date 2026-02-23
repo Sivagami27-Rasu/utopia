@@ -944,6 +944,8 @@ $Adv_AdvSecSafeBrowsingRFCEnable=1
 $Adv_AdvSecCujoTelemetryWiFiFPRFCEnable=0
 $Adv_AdvSecCujoTracerRFCEnable=0
 $Adv_AdvSecCujoTelemetryRFCEnable=0
+$Adv_SATERFCEnable=0
+$Adv_TCPTrackerFilterDevicesRFCEnable=0
 $Adv_RaptrRFCEnable=1
 
 #Firewall log settings
@@ -1489,3 +1491,11 @@ $RemoteDebuggerIssueType=NULL
 #Wifi Personalization Support Default value
 $WiFiPersonalizationSupport=true
 
+#FwDwld_AvlMem_RsrvThreshold Default value
+$FwDwld_AvlMem_RsrvThreshold=20
+
+#FwDwld_ImageProcMemPercent Default value
+$FwDwld_ImageProcMemPercent=0
+
+#STAGE Default value
+$StageEnabled=false
